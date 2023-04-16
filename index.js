@@ -3,7 +3,8 @@ import * as dotenv from 'dotenv';
 import cors from 'cors';
 dotenv.config();
 
-console.log(process.env.PORT);
+const port = process.env.PORT || 6000;
+console.log(port);
 
 const app = express();
 app.use(cors());
@@ -17,7 +18,7 @@ app.get('/', async (req, res) => {
 
 const startServer = async () => {
   try {
-    app.listen(process.env.PORT, () => console.log('Server started on port: '+process.env.PORT));
+    app.listen(port, () => console.log('Server started on port: '+port));
   } catch (error) {
     console.log(error);
   }
